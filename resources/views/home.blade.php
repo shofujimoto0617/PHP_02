@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookers</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('home')
     <h1>
         ようこそ <strong>Bookers</strong> へ！
     </h1>
@@ -16,5 +11,3 @@
     <p>
         <a href="">start</a>
     </p>
-</body>
-</html>
