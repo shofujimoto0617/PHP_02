@@ -10,7 +10,9 @@ class BookController extends Controller
     //BookController
     public function index()
     {
-        return view('books.index');
+        $books = Book::all();
+
+        return view('books.index',['books'=>$books]);
     }
 
     public function create(Request $request)

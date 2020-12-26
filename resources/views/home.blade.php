@@ -11,3 +11,4 @@
     <p>
         <a href="{{ action('App\Http\Controllers\BookController@index') }}">start</a>
     </p>
+@endsection
