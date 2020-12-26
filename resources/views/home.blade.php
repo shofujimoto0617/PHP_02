@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('home')
+@section('body')
     <h1>
         ようこそ <strong>Bookers</strong> へ！
     </h1>
@@ -9,5 +9,5 @@
     </p>
     <p>印象を共有し交換することができます</p>
     <p>
-        <a href="">start</a>
+        <a href="{{ action('App\Http\Controllers\BookController@index') }}">start</a>
     </p>
