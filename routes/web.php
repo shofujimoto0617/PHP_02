@@ -22,3 +22,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/books', [BookController::class, 'index'])->name('book_index');
+Route::post('/create', [BookController::class, 'create'])->name('book_create');
