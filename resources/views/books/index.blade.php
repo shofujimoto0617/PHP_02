@@ -12,6 +12,12 @@
         </div>
     @endif
 
+    @if (session('flash_message'))
+        <div class="alert alert-success">
+            {{ session('flash_message') }}
+        </div>
+    @endif
+
     <h1>Books</h1>
     <table>
         <thead>
