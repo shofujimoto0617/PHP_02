@@ -2,6 +2,27 @@
 
 @section('body')
     <h1>Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+                <th colspan="3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($books as $book)
+                <tr>
+                    <td>{{ $book['title'] }}</td>
+                    <td>{{ $book['body'] }}</td>
+                    <td><a href="{{ action('App\Http\Controllers\BookController@show', $book['id']) }}">Show</a></td>
+                    <td><a href="{{ action('App\Http\Controllers\BookController@edit', $book['id']) }}">Edit</a></td>
+                    <td></td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
     <h2>New book</h2>
     <form action="{{ url('create') }}" method="post">
         @csrf
@@ -19,3 +40,4 @@
         </div> -->
 
     </form>
+@endsection
