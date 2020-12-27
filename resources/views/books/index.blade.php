@@ -15,8 +15,8 @@
                 <tr>
                     <td>{{ $book['title'] }}</td>
                     <td>{{ $book['body'] }}</td>
-                    <td></td>
-                    <td></td>
+                    <td><a href="{{ action('App\Http\Controllers\BookController@show', $book['id']) }}">Show</a></td>
+                    <td><a href="{{ action('App\Http\Controllers\BookController@edit', $book['id']) }}">Edit</a></td>
                     <td></td>
                 </tr>
             @endforeach
