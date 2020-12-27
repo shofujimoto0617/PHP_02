@@ -41,20 +41,17 @@ class BookController extends Controller
 
     public function update(Request $request)
     {
-        // $book = Book::find($id);
-        // $book->title = $request->title;
-        // $book->body = $request->body;
-        // $book->save();
-        // $book_get_query = Book::find($id);
-        // $book_info = $book_get_query->find($request['id']);
-        // $book_info->book['title'] = $request['title'];
-        // $book_info->book['body'] = $request['body'];
-        // $book_info->save();
-
         $book = Book::findOrFail($request['id']);
         $book['title'] = $request['title'];
         $book['body'] = $request['body'];
         $book->save();
+
+        return redirect(route('book_index'));
+    }
+
+    public function delete(Request $request)
+    {
+        Book::find($request['id'])->delete();
 
         return redirect(route('book_index'));
     }

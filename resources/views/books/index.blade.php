@@ -15,9 +15,14 @@
                 <tr>
                     <td>{{ $book['title'] }}</td>
                     <td>{{ $book['body'] }}</td>
-                    <td><a href="{{ action('App\Http\Controllers\BookController@show', $book['id']) }}">Show</a></td>
-                    <td><a href="{{ action('App\Http\Controllers\BookController@edit', $book['id']) }}">Edit</a></td>
-                    <td></td>
+                    <td><a href="{{ action('App\Http\Controllers\BookController@show', $book['id']) }}" class="btn btn-info">Show</a></td>
+                    <td><a href="{{ action('App\Http\Controllers\BookController@edit', $book['id']) }}" class="btn btn-success">Edit</a></td>
+                    <td>
+                        <form method="post" action="/delete/{{ $book['id'] }}">
+                            {{ csrf_field() }}
+                            <input type="submit" value="Destroy" class="btn btn-danger">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
@@ -33,7 +38,7 @@
         <div class="field">
             <label for="body">Body</label><br>
             <textarea class="book_body" name="body" id="body" cols="20" rows="3"></textarea><br><br>
-            <input type="submit" value="create book">
+            <input type="submit" value="create book" class="btn btn-primary">
         </div>
         <!-- <div class="actions">
             <input type="submit" value="create book">
