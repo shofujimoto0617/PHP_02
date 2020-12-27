@@ -17,6 +17,14 @@ class BookController extends Controller
 
     public function create(Request $request)
     {
+        // validation
+        $rules = [
+            'title' => ['required', 'string'],
+            'body' => ['required', 'string']
+        ];
+        $this->validate($request, $rules);
+
+
         $book = new Book();
         $book['title'] = $request['title'];
         $book['body'] = $request['body'];
@@ -41,6 +49,14 @@ class BookController extends Controller
 
     public function update(Request $request)
     {
+
+        // validation
+        $rules = [
+            'title' => ['required', 'string'],
+            'body' => ['required', 'string']
+        ];
+        $this->validate($request, $rules);
+
         $book = Book::findOrFail($request['id']);
         $book['title'] = $request['title'];
         $book['body'] = $request['body'];

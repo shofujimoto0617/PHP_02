@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('body')
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <h1>Editing Book</h1>
     <form action="{{ route('book_update',$book->id) }}" method="post">
         @csrf
