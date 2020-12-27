@@ -29,6 +29,7 @@ class BookController extends Controller
         $book['title'] = $request['title'];
         $book['body'] = $request['body'];
         $book->save();
+        session()->flash('flash_message', 'Book was successfully created.');
 
         return redirect(route('book_show', ['id' => $book]));
     }
@@ -62,13 +63,15 @@ class BookController extends Controller
         $book['body'] = $request['body'];
         $book->save();
 
-        return redirect(route('book_index'));
+        session()->flash('flash_message', 'Book was successfully updated.');
+        return redirect(route('book_show', ['id' => $book]));
     }
 
     public function delete(Request $request)
     {
         Book::find($request['id'])->delete();
 
+        session()->flash('flash_message', 'Book was successfully destroyed.');
         return redirect(route('book_index'));
     }
 }

@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('body')
+
+    @if (session('flash_message'))
+        <div class="alert alert-success">
+            {{ session('flash_message') }}
+        </div>
+    @endif
+
     <p>
         <strong>Title:</strong>
         {{ $book['title'] }}     
