@@ -11,7 +11,10 @@
         <div class="field">
             <label for="body">Body</label><br>
             <textarea class="book_body" name="body" id="body" cols="20" rows="3">{{ $book['body'] }}</textarea><br><br>
-            <input type="submit" value="create book">
+            <input type="submit" value="create book" class="btn btn-primary">
         </div>
     </form>
+    <a href="{{ action('App\Http\Controllers\BookController@show', $book['id']) }}">Show</a>
+    |
+    <a href="{{ action('App\Http\Controllers\BookController@index') }}">Back</a>
 @endsection

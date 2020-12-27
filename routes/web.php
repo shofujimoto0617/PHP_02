@@ -28,3 +28,4 @@ Route::post('/create', [BookController::class, 'create'])->name('book_create');
 Route::get('/show/{id}', [BookController::class, 'show'])->name('book_show');
 Route::get('/edit/{id}', [BookController::class, 'edit'])->name('book_edit');
 Route::post('/update/{id}', [BookController::class, 'update'])->name('book_update');
+Route::post('/delete/{id}', [BookController::class, 'delete'])->name('book_delete');
